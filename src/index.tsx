@@ -2,7 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import { NavBar } from "./Components/navBar";
-import { HomePage } from "./Components/homePage";
+import { HomePage } from "./Pages/homePage";
+import { AboutPage } from "./Pages/aboutPage";
 
 enum PageState {
     Home,
@@ -21,18 +22,17 @@ class MainPage extends React.Component<IMainPageState> {
         page: <HomePage />,
     };
     handleHomeClick = () => {
-        if (this.state.page) {
-            this.setState({ page: undefined });
-        } else {
-            this.setState({ page: <HomePage /> });
-        }
+        this.setState({ page: <HomePage /> });
+    };
+    handleAboutClick = () => {
+        this.setState({ page: <AboutPage /> });
     };
     render() {
         return (
             <>
                 <NavBar
                     handleHomeClick={this.handleHomeClick}
-                    handleAboutClick={() => {}}
+                    handleAboutClick={this.handleAboutClick}
                     handleContactClick={() => {}}
                     handleProjectsClick={() => {}}
                 />
