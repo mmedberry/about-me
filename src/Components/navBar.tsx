@@ -33,9 +33,8 @@ export class NavBar extends React.Component<INavBarProps> {
                 <Button
                     label="Contact"
                     primary
-                    icon={
-                        <ContactInfo onClick={this.props.handleContactClick} />
-                    }
+                    icon={<ContactInfo />}
+                    onClick={this.props.handleContactClick}
                 />
             </Box>
         );

@@ -1,5 +1,4 @@
 import React from "react";
-import { Box, Image } from "grommet";
 
 export class AboutPage extends React.Component {
     render() {
