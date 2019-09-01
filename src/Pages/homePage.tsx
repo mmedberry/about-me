@@ -15,7 +15,7 @@ export class HomePage extends React.Component {
                     the projects I have been working on.
                 </p>
                 <Box height="small" width="small">
-                    <Image fit="cover" src="/suit_img_50x50.jpg" />
+                    <Image fit="cover" src="./suit_img_50x50.jpg" />
                 </Box>
             </>
         );

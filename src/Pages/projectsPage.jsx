@@ -21,7 +21,11 @@ export class ProjectsPage extends React.Component {
                         functionality of our rover by using it to navigate a
                         course littered with objects into a target zone while
                         limiting collisions.
-                        <Image fit="cover" src="/rover.jpg" alignSelf="start" />
+                        <Image
+                            fit="cover"
+                            src="./rover.jpg"
+                            alignSelf="start"
+                        />
                     </AccordionPanel>
                     <AccordionPanel label="ProjectX Game Engine - Software Development">
                         <Box>
@@ -38,7 +42,7 @@ export class ProjectsPage extends React.Component {
                             <Box pad="small" basis="1/2">
                                 <Image
                                     fit="cover"
-                                    src="/gameScreen.png"
+                                    src="./gameScreen.png"
                                     alignSelf="start"
                                 />
                                 Above is an in-game screen from the ProjectX
@@ -53,7 +57,7 @@ export class ProjectsPage extends React.Component {
                             <Box basis="1/2" pad="small" overflow="auto">
                                 <Image
                                     fit="cover"
-                                    src="/projectDesign.png"
+                                    src="./projectDesign.png"
                                     alignSelf="start"
                                 />{" "}
                                 Above is the project design overview. We

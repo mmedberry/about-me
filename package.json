@@ -2,7 +2,7 @@
     "name": "medberry-me",
     "version": "0.1.0",
     "private": true,
-    "homepage": "https://mmedberry.github.io/medberry-me/",
+    "homepage": "https://mmedberry.github.io/PersonalReactWebsite/",
     "dependencies": {
         "@types/react": "^16.9.1",
         "@types/react-dom": "^16.8.5",
