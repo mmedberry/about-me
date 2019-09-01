@@ -17,7 +17,7 @@ export class AboutPage extends React.Component {
                 </p>
                 <p>
                     {" "}
-                    I am also a member of Tau Beta Pi, and currently work as a
+                    I am also a member of Tau Beta Pi, an engineering honor society, and currently work as a
                     pharmacy technician part-time.
                 </p>
             </>

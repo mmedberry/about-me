@@ -8,8 +8,10 @@
     "grommet": "^2.7.5",
     "grommet-icons": "^4.3.0",
     "jshint": "^2.10.2",
+    "pdfjs-dist": "^2.1.266",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-pdf": "^4.1.0",
     "react-scripts": "3.0.1",
     "styled-components": "^4.3.2",
     "typescript": "^3.5.3"
@@ -36,6 +38,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-pdf": "^4.0.2",
     "prettier": "1.18.2"
   }
 }

@@ -5,6 +5,7 @@ import { NavBar } from "./Components/navBar";
 import { HomePage } from "./Pages/homePage";
 import { AboutPage } from "./Pages/aboutPage";
 import { ContactPage } from "./Pages/conactPage";
+import { ProjectsPage } from "./Pages/projectsPage";
 
 enum PageState {
     Home,
@@ -31,6 +32,9 @@ class MainPage extends React.Component<IMainPageState> {
     handleContactClick = () => {
         this.setState({ page: <ContactPage /> });
     };
+    handleProjectsClick = () => {
+        this.setState({ page: <ProjectsPage /> });
+    };
     render() {
         return (
             <>
@@ -38,7 +42,7 @@ class MainPage extends React.Component<IMainPageState> {
                     handleHomeClick={this.handleHomeClick}
                     handleAboutClick={this.handleAboutClick}
                     handleContactClick={this.handleContactClick}
-                    handleProjectsClick={() => {}}
+                    handleProjectsClick={this.handleProjectsClick}
                 />
                 {this.state.page}
             </>
