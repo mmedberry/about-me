@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/medberry-me/static/css/main.55d72bbf.chunk.css",
+    "main.js": "/medberry-me/static/js/main.ffaaba04.chunk.js",
+    "main.js.map": "/medberry-me/static/js/main.ffaaba04.chunk.js.map",
+    "runtime~main.js": "/medberry-me/static/js/runtime~main.3c296920.js",
+    "runtime~main.js.map": "/medberry-me/static/js/runtime~main.3c296920.js.map",
+    "static/js/2.fe945df2.chunk.js": "/medberry-me/static/js/2.fe945df2.chunk.js",
+    "static/js/2.fe945df2.chunk.js.map": "/medberry-me/static/js/2.fe945df2.chunk.js.map",
+    "index.html": "/medberry-me/index.html",
+    "precache-manifest.58d5dac820fed2485f18c3193cc6fffc.js": "/medberry-me/precache-manifest.58d5dac820fed2485f18c3193cc6fffc.js",
+    "service-worker.js": "/medberry-me/service-worker.js",
+    "static/css/main.55d72bbf.chunk.css.map": "/medberry-me/static/css/main.55d72bbf.chunk.css.map"
+  }
+}
