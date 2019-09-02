@@ -14,13 +14,11 @@ enum PageState {
     Projects,
 }
 interface IMainPageState {
-    pageState?: PageState;
     page?: JSX.Element;
 }
 
 class MainPage extends React.Component<IMainPageState> {
     state: IMainPageState = {
-        pageState: PageState.Home,
         page: <HomePage />,
     };
     handleHomeClick = () => {
