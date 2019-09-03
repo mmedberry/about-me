@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Image } from "grommet";
+import { Box, Image, Text } from "grommet";
 
 export class HomePage extends React.Component {
     render() {
@@ -10,10 +10,10 @@ export class HomePage extends React.Component {
                     My name is Max Medberry, and I'm a senior in Computer
                     Engineering at Iowa State University.
                 </h1>
-                <p>
+                <Text size="large">
                     This is a small personal site to present and link to some of
                     the projects I have been working on.
-                </p>
+                </Text>
                 <Box height="small" width="small">
                     <Image fit="cover" src="./suit_img_50x50.jpg" />
                 </Box>
