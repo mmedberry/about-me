@@ -12,11 +12,12 @@ export class HomePage extends React.Component {
                 </h1>
                 <Text size="large">
                     This is a small personal site to present and link to some of
-                    the projects I have been working on.
+                    my personal information and projects. Click on a button at
+                    the top to learn more about me or what I've been working on!
                 </Text>
-                <Box height="small" width="small">
+                {/* <Box height="small" width="small">
                     <Image fit="cover" src="./suit_img_50x50.jpg" />
-                </Box>
+                </Box> */}
             </>
         );
     }

@@ -1,6 +1,13 @@
 import React from "react";
 import { Box, Button, Grommet } from "grommet";
-import { Home, Code, ContactInfo, RestroomMen } from "grommet-icons";
+import {
+    Home,
+    Code,
+    ContactInfo,
+    RestroomMen,
+    Android,
+    DocumentText,
+} from "grommet-icons";
 import { PageState } from "../types";
 
 interface INavBarProps {
@@ -8,6 +15,8 @@ interface INavBarProps {
     handleAboutClick: () => void;
     handleProjectsClick: () => void;
     handleContactClick: () => void;
+    handleEtchASketchClick: () => void;
+    handleReflectionsClick: () => void;
     pageState?: PageState;
 }
 interface INavBarState {
@@ -41,11 +50,25 @@ export class NavBar extends React.Component<INavBarProps> {
                     />
                     <Button
                         margin="small"
+                        primary={this.props.pageState === PageState.Reflections}
+                        label="Reflections"
+                        icon={<DocumentText />}
+                        onClick={this.props.handleReflectionsClick}
+                    />
+                    <Button
+                        margin="small"
                         primary={this.props.pageState === PageState.Contact}
                         label="Contact"
                         icon={<ContactInfo />}
                         onClick={this.props.handleContactClick}
                     />
+                    {/* <Button
+                        margin="small"
+                        primary={this.props.pageState === PageState.EtchASketch}
+                        label="Game"
+                        icon={<Android />}
+                        onClick={this.props.handleEtchASketchClick}
+                    /> */}
                 </Box>
             </Grommet>
         );

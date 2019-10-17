@@ -7,6 +7,9 @@ import { AboutPage } from "./Pages/aboutPage";
 import { ContactPage } from "./Pages/conactPage";
 import { ProjectsPage } from "./Pages/projectsPage";
 import { PageState } from "./types";
+import { EtchASketch } from "./Pages/etchASketch";
+import { Crossword } from "./Components/crossWord";
+import { ReflectionsPage } from "./Pages/reflectionsPage";
 
 interface IMainPageState {
     page?: JSX.Element;
@@ -33,6 +36,19 @@ class MainPage extends React.Component<IMainPageState> {
             pageState: PageState.Projects,
         });
     };
+    handleEtchASketchClick = () => {
+        this.setState({
+            page: <EtchASketch />,
+            pageState: PageState.EtchASketch,
+        });
+    };
+    handleReflectionsClick = () => {
+        this.setState({
+            page: <ReflectionsPage />,
+            pageState: PageState.Reflections,
+        });
+    };
+
     render() {
         return (
             <>
@@ -41,8 +57,11 @@ class MainPage extends React.Component<IMainPageState> {
                     handleAboutClick={this.handleAboutClick}
                     handleContactClick={this.handleContactClick}
                     handleProjectsClick={this.handleProjectsClick}
+                    handleEtchASketchClick={this.handleEtchASketchClick}
+                    handleReflectionsClick={this.handleReflectionsClick}
                     pageState={this.state.pageState}
                 />
+                {/* <Crossword></Crossword> */}
                 {this.state.page}
             </>
         );

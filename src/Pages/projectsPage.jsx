@@ -90,6 +90,39 @@ export class ProjectsPage extends React.Component {
                             </Box>
                         </Box>
                     </AccordionPanel>
+                    <AccordionPanel label="Drawme.io">
+                        <Text>
+                            We created an online multiplayer game where players
+                            submit an image, and other players try to be the
+                            best to redraw that image. I was project leader on
+                            this team and divised the core idea and architure of
+                            the project, and led the team meetings and
+                            communication. We decided a web application was the
+                            best way to develop the game, and this was my first
+                            exposure to many web technologies. I also gained
+                            some experience in leading a team. We used some
+                            common industry tools like JavaScript, HTML/HTML
+                            generator engines, and Express.js framework server.{" "}
+                        </Text>
+                    </AccordionPanel>
+                    <AccordionPanel label="Senior Design Project">
+                        <Text>
+                            My senior design team is currently working on
+                            creating a UAV capable of using AI to do volumetric
+                            analysis of objects, and fly autonomously. My
+                            position on the team was chief backend engineer, and
+                            I created programs to interface the hardware of the
+                            drone with external software programs. This project
+                            has taught me about software architecture, project
+                            planning, and team work and communication. Some
+                            specific technical skills I learned was ROS
+                            framework, Linux operating system, and the C++
+                            programming language. I also contributed to the team
+                            by reading up on ROS framework and quickly became
+                            the team's go to for references and direction within
+                            ROS.
+                        </Text>
+                    </AccordionPanel>
                 </Accordion>
             </>
         );
