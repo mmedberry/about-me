@@ -11,12 +11,14 @@ export class ReflectionsPage extends React.Component {
                 </a>
                 <br />
                 <br />
-                <Text>
-                    {" "}
-                    I am also a member of Tau Beta Pi, an engineering honor
-                    society, and currently work as a pharmacy technician
-                    part-time.
-                </Text>
+                <a href="cumulativeReflection.pdf">
+                    <Text size="large">Cumulative Reflection</Text>
+                </a>
+                <br />
+                <br />
+                <a href="engineering_ethics.pdf">
+                    <Text size="large">Engineering Ethics</Text>
+                </a>
             </>
         );
     }

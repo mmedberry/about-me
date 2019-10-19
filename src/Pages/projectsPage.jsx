@@ -30,16 +30,16 @@ export class ProjectsPage extends React.Component {
                             alignSelf="start"
                         />
                     </AccordionPanel>
-                    <AccordionPanel label="ProjectX Game Engine - Software Development">
+                    <AccordionPanel label="ProjectX Engine - Software Dev Practices">
                         <Box>
                             <Text>
                                 This was a project I did for Com S 309: Software
-                                Development. In this project I was part of a
-                                team that created a modular game engine and
-                                desktop game application based on that game
-                                engine. The game engine was created in Java and
-                                is capable of efficiently rendering a 2-D game.
-                                The game engine supports multiplayer
+                                Development Practices. In this project I was
+                                part of a team that created a modular game
+                                engine and desktop game application based on
+                                that game engine. The game engine was created in
+                                Java and is capable of efficiently rendering a
+                                2-D game. The game engine supports multiplayer
                                 functionality with a dedicated server machine
                                 for hosting peer-to-peer play.
                             </Text>
@@ -90,7 +90,7 @@ export class ProjectsPage extends React.Component {
                             </Box>
                         </Box>
                     </AccordionPanel>
-                    <AccordionPanel label="Drawme.io">
+                    <AccordionPanel label="Drawme.io - Construction of User Interfaces">
                         <Text>
                             We created an online multiplayer game where players
                             submit an image, and other players try to be the
@@ -105,7 +105,7 @@ export class ProjectsPage extends React.Component {
                             generator engines, and Express.js framework server.{" "}
                         </Text>
                     </AccordionPanel>
-                    <AccordionPanel label="Senior Design Project">
+                    <AccordionPanel label="Realtime Volumetric Analysis - Senior Design">
                         <Text>
                             My senior design team is currently working on
                             creating a UAV capable of using AI to do volumetric
@@ -121,6 +121,25 @@ export class ProjectsPage extends React.Component {
                             by reading up on ROS framework and quickly became
                             the team's go to for references and direction within
                             ROS.
+                        </Text>
+                    </AccordionPanel>
+                    <AccordionPanel label="Software Development Internship - Buildertrend">
+                        <Text>
+                            During the summer of 2019 I had the opportunity to
+                            intern at Buildertrend in Omaha, Nebraska. I learned
+                            a lot about organizational structure at technology
+                            companies, and the modern Microsoft web app tech
+                            stack. As part of a team working on converting
+                            existing webpages into React (a
+                            JavaScript/TypeScript frontend framework), I learned
+                            how to work as part of a team in an agile work
+                            environment, with peers, managers, and project
+                            planning. Some specific skills I worked on over the
+                            summer were C# (specifically .NET Core and Entity
+                            framework), TypeScript, and SQL. Buildertrend was a
+                            great company to work with and they gave me a lot of
+                            opportunity to learn and grow, especially in the
+                            area of web development.
                         </Text>
                     </AccordionPanel>
                 </Accordion>
