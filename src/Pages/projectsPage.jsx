@@ -6,7 +6,7 @@ export class ProjectsPage extends React.Component {
         return (
             <>
                 <h1>Project information</h1>
-                <Accordion>
+                <Accordion animate={false}>
                     <AccordionPanel label="Mars Rover - Embedded Systems">
                         <Text>
                             This was a project I did for Cpr E 288: Embedded

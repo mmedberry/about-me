@@ -10,6 +10,7 @@ import { PageState } from "./types";
 import { EtchASketch } from "./Pages/etchASketch";
 import { Crossword } from "./Components/crossWord";
 import { ReflectionsPage } from "./Pages/reflectionsPage";
+import { CombatManagerPage } from "./Pages/combatManagerPage";
 
 interface IMainPageState {
     page?: JSX.Element;
@@ -48,6 +49,12 @@ class MainPage extends React.Component<IMainPageState> {
             pageState: PageState.Reflections,
         });
     };
+    handleCombatManagerClick=()=>{
+        this.setState({
+            page: <CombatManagerPage/>,
+            pageState: PageState.CombatManager,
+        })
+    }
 
     render() {
         return (
@@ -59,6 +66,7 @@ class MainPage extends React.Component<IMainPageState> {
                     handleProjectsClick={this.handleProjectsClick}
                     handleEtchASketchClick={this.handleEtchASketchClick}
                     handleReflectionsClick={this.handleReflectionsClick}
+                    handleCombatManagerClick={this.handleCombatManagerClick}
                     pageState={this.state.pageState}
                 />
                 {/* <Crossword></Crossword> */}

@@ -6,7 +6,7 @@ import {
     ContactInfo,
     RestroomMen,
     Android,
-    DocumentText,
+    DocumentText, Gamepad
 } from "grommet-icons";
 import { PageState } from "../types";
 
@@ -17,6 +17,7 @@ interface INavBarProps {
     handleContactClick: () => void;
     handleEtchASketchClick: () => void;
     handleReflectionsClick: () => void;
+    handleCombatManagerClick: ()=> void;
     pageState?: PageState;
 }
 interface INavBarState {
@@ -61,6 +62,13 @@ export class NavBar extends React.Component<INavBarProps> {
                         label="Contact"
                         icon={<ContactInfo />}
                         onClick={this.props.handleContactClick}
+                    />
+                    <Button
+                        margin="small"
+                        primary={this.props.pageState === PageState.CombatManager}
+                        label="Combat Manager"
+                        icon={<Gamepad />}
+                        onClick={this.props.handleCombatManagerClick}
                     />
                     {/* <Button
                         margin="small"

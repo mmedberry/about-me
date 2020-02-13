@@ -5,6 +5,7 @@ export enum PageState {
     Projects,
     EtchASketch,
     Reflections,
+    CombatManager
 }
 
 export enum Direction {
@@ -13,6 +14,29 @@ export enum Direction {
     Left,
     Right,
     None,
+}
+
+export enum Affiliation {
+    Ally,
+    Enemy,
+    Neutral
+}
+
+export class Character{
+    name: string;
+    hp: number;
+    initiative: number;
+    affiliation: Affiliation;
+    dex: number;
+    id: number;
+    constructor(data: any){
+        this.name = data.name;
+        this.hp = data.hp;
+        this.initiative = data.initiative;
+        this.affiliation = data.affiliation;
+        this.dex = data.dex;
+        this.id = data.id;
+    }
 }
 
 export class DictionaryEntry {
