@@ -70,15 +70,16 @@ export class CharacterForm extends React.Component<ICharacterFormProps, ICharact
         }
     }
     handleIsSubmitted = (): ReactElement => {
+        let calculatedId = this.props.id + 1;
         if (this.state.submitted) {
             return (
                 <>
                     <Box border="all" margin="small" round={true} overflow="hidden" pad="small" alignSelf="start" width="medium">
 
                         <h1>
-                            {"Character " + this.props.id + ": " + this.state.name}
+                            {"Character " + calculatedId + ": " + this.state.name}
                         </h1>
-                        <Button label="Edit" icon={<Edit />} onClick={this.handleEditClick}/>
+                        <Button label="Edit" icon={<Edit />} onClick={this.handleEditClick} />
                     </Box>
                 </>
             );
@@ -88,11 +89,11 @@ export class CharacterForm extends React.Component<ICharacterFormProps, ICharact
                 <Box border="all" margin="small" round={true} overflow="hidden" pad="small" alignSelf="start" width="medium">
 
                     <Form name="form" onSubmit={this.handleOnSubmit}>
-                        <h1>
-                            {"Character " + this.props.id}
-                        </h1>
+                        <h2>
+                            {"Character " + calculatedId}
+                        </h2>
                         <FormField type="text" value={this.state.name} name="name" label="Name" required={true} onChange={this.handleChange} />
-                        <FormField name="initiative" label="Initiative" required={true} onChange={this.handleChange} />
+                        <FormField name="initiative" label="Initiative" required={true} onChange={this.handleChange} type="number" />
                         <FormField name="dex" label="Dexterity Modifier" type="number" required={true} onChange={this.handleChange} />
                         <FormField name="hp" label="HP" type="number" required={true} onChange={this.handleChange} />
                         <Button label="Submit" type="submit" icon={<UserAdd />} />
