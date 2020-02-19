@@ -17,25 +17,49 @@ export enum Direction {
 }
 
 export enum Affiliation {
-    Ally,
-    Enemy,
-    Neutral
+    Ally = "Ally",
+    Enemy = "Enemy",
+    Neutral = "Neutral",
+    NULL = ""
 }
 
-export class Character{
+export class Character {
     name: string;
     hp: number;
     initiative: number;
     affiliation: Affiliation;
     dex: number;
     id: number;
-    constructor(data: any){
-        this.name = data.name;
-        this.hp = data.hp;
-        this.initiative = data.initiative;
-        this.affiliation = data.affiliation;
-        this.dex = data.dex;
-        this.id = data.id;
+
+    constructor(data?: any) {
+        if (data.name) {
+            this.name = data.name;
+            this.hp = data.hp;
+            this.initiative = data.initiative;
+            this.affiliation = data.affiliation;
+            this.dex = data.dex;
+            this.id = data.id;
+        } else if (data || data === 0) {
+            this.name = "";
+            this.hp = 0;
+            this.initiative = 0;
+            this.affiliation = Affiliation.Neutral;
+            this.dex = 0;
+            this.id = data;
+        } else {
+            this.name = "";
+            this.hp = 0;
+            this.initiative = 0;
+            this.affiliation = Affiliation.Neutral;
+            this.dex = 0;
+            this.id = 0;
+        }
+    }
+    isFull() {
+        if (this.name && this.initiative) {
+            return true;
+        }
+        else return false;
     }
 }
 

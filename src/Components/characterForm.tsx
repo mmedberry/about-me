@@ -1,11 +1,12 @@
 import React, { ChangeEvent, ReactElement } from "react";
-import Grommet, { Form, FormField, Button, Box } from "grommet";
+import Grommet, { Form, FormField, Button, Box, Select } from "grommet";
 import { Trash, UserAdd, Edit } from "grommet-icons";
 import { Character, Affiliation } from "../types";
 interface ICharacterFormProps {
     handleDeleteClick: () => void;
     handleSubmitCharacterClick: (data: Character) => void;
     id: number;
+    character?: Character;
 }
 interface ICharacterFormState {
     name: string;
@@ -13,13 +14,15 @@ interface ICharacterFormState {
     dex: number;
     hp: number;
     submitted: boolean;
+    affiliation: Affiliation;
 }
 export class CharacterForm extends React.Component<ICharacterFormProps, ICharacterFormState>{
     state: ICharacterFormState = {
-        name: "",
-        initiative: 0,
-        dex: 0,
-        hp: 0,
+        name: this.props.character ? this.props.character.name : "",
+        initiative: this.props.character ? this.props.character.initiative : 0,
+        dex: this.props.character ? this.props.character.dex : 0,
+        hp: this.props.character ? this.props.character.hp : 0,
+        affiliation: this.props.character ? this.props.character.affiliation : Affiliation.Neutral,
         submitted: false
     }
     handleOnSubmit = () => {
@@ -30,7 +33,8 @@ export class CharacterForm extends React.Component<ICharacterFormProps, ICharact
             dex: this.state.dex,
             hp: this.state.hp,
             id: this.props.id,
-            affiliation: Affiliation.Ally
+            affiliation: Affiliation.Ally,
+            isFull: Character.prototype.isFull
         };
         this.setState({
             submitted: true
@@ -68,9 +72,28 @@ export class CharacterForm extends React.Component<ICharacterFormProps, ICharact
                 hp: numValue
             })
         }
+        else if (eventName === "affiliation") {
+
+        }
+    }
+
+    handleAffiliationChange = (event: any) => {
+        const value = event.value;
+        let newValue = this.state.affiliation;
+        if ("Ally" === value) {
+            newValue = Affiliation.Ally
+        } else if ("Enemy" === value) {
+            newValue = Affiliation.Enemy
+        }
+        else if ("Neutral" === value) {
+            newValue = Affiliation.Neutral
+        }
+        this.setState({
+            affiliation: newValue
+        })
     }
     handleIsSubmitted = (): ReactElement => {
-        let calculatedId = this.props.id + 1;
+        let calculatedId = this.props.id;
         if (this.state.submitted) {
             return (
                 <>
@@ -93,9 +116,12 @@ export class CharacterForm extends React.Component<ICharacterFormProps, ICharact
                             {"Character " + calculatedId}
                         </h2>
                         <FormField type="text" value={this.state.name} name="name" label="Name" required={true} onChange={this.handleChange} />
-                        <FormField name="initiative" label="Initiative" required={true} onChange={this.handleChange} type="number" />
-                        <FormField name="dex" label="Dexterity Modifier" type="number" required={true} onChange={this.handleChange} />
-                        <FormField name="hp" label="HP" type="number" required={true} onChange={this.handleChange} />
+                        <FormField name="initiative" value={this.state.initiative || undefined} label="Initiative" required={true} onChange={this.handleChange} type="number" />
+                        <FormField name="dex" value={this.state.dex || undefined} label="Dexterity Modifier" type="number" onChange={this.handleChange} />
+                        <FormField name="hp" value={this.state.hp || undefined} label="HP" type="number" required={true} onChange={this.handleChange} />
+                        <FormField label="Affiliation" name="affiliation">
+                            <Select options={[Affiliation.Ally, Affiliation.Enemy, Affiliation.Neutral]} value={this.state.affiliation} onChange={this.handleAffiliationChange} />
+                        </FormField>
                         <Button label="Submit" type="submit" icon={<UserAdd />} />
                         <Button label="Delete" icon={<Trash />} onClick={this.props.handleDeleteClick} color="red" hoverIndicator="red" />
 

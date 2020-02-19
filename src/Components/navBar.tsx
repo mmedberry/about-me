@@ -5,7 +5,6 @@ import {
     Code,
     ContactInfo,
     RestroomMen,
-    Android,
     DocumentText, Gamepad
 } from "grommet-icons";
 import { PageState } from "../types";

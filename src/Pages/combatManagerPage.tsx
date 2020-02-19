@@ -8,9 +8,9 @@ interface ICombatManagerProps {
 }
 interface ICombatManagerState {
     inCombat: boolean;
-    characterCount: number;
     characters: Character[];
     currentTurn: number;
+    currentId: number;
 }
 export class CombatManagerPage extends React.Component<ICombatManagerProps, ICombatManagerState> {
     constructor(props: Readonly<ICombatManagerProps>) {
@@ -19,21 +19,38 @@ export class CombatManagerPage extends React.Component<ICombatManagerProps, ICom
     }
     state: ICombatManagerState = {
         inCombat: false,
-        characterCount: 0,
         characters: [],
-        currentTurn: 0
+        currentTurn: 0,
+        currentId: 0,
     };
-    handleDeleteClick = () => {
-        let decrement = this.state.characterCount - 1;
+    handleDeleteClick = (id: number) => {
+        console.log("del #: " + id);
+        for (let character of this.state.characters) {
+            console.log("Char before del: " + character.name);
+        }
+        var tempList = this.state.characters;
+        var index = tempList.findIndex((character: Character) => character.id === id);
+        tempList.splice(index, 1);
         this.setState({
-            characterCount: decrement
-        })
+            characters: tempList
+        });
+        for (let character of this.state.characters) {
+            console.log("Char after del: " + character.name);
+        }
     }
     handleAddCharacterClick = () => {
-        let increment = this.state.characterCount + 1;
+        let newId = this.state.currentId + 1;
+        console.log("newId: " + newId);
         this.setState({
-            characterCount: increment
-        })
+            currentId: newId
+        });
+        let tempCharacter = new Character(newId);
+        console.log("New Char id: " + tempCharacter.id);
+        let tempList = this.state.characters;
+        tempList.push(tempCharacter);
+        this.setState({
+            characters: tempList
+        });
     }
     handleSubmitCharacterClick = (data: Character) => {
         let tempArray = this.state.characters;
@@ -63,7 +80,8 @@ export class CombatManagerPage extends React.Component<ICombatManagerProps, ICom
         })
     }
     handleBeginCombatClick = () => {
-        let tempArray = this.state.characters.sort((a, b) => {
+        let fullArray = this.state.characters.filter(character => character.isFull());
+        let tempArray = fullArray.sort((a, b) => {
             if (a.initiative === b.initiative) {
                 if (a.dex < b.dex) {
                     return 1;
@@ -88,28 +106,38 @@ export class CombatManagerPage extends React.Component<ICombatManagerProps, ICom
     render() {
         const forms = [];
         if (this.state.inCombat) {
-            for (let i = 0; i <= this.state.characterCount; i++) {
-                forms.push(<Box key={i} border="all" margin="small" round={true} overflow="hidden" pad="small" alignSelf="start" width={this.state.currentTurn === i ? "medium" : "small"}>
-                    <Text>
-                        {this.state.characters[i].name}
-                    </Text>
-                    <Button label="Next"
-                        onClick={this.handleIncreaseTurn}></Button>
-                </Box>)
+            let i = 0;
+            for (let character of this.state.characters) {
+                forms.push(
+                    <Box key={character.id} border="all" margin="small" round={true} overflow="hidden" pad="small" alignSelf="start" width={i === this.state.currentTurn ? "medium" : "small"}>
+                        <Text>
+                            {character.name}
+                        </Text>
+                        <Button label="Next"
+                            onClick={this.handleIncreaseTurn}></Button>
+                    </Box>);
+                i++;
+
             }
         }
         else {
-            for (let i = 0; i <= this.state.characterCount; i++) {
-                forms.push(<CharacterForm key={i} id={i} handleDeleteClick={this.handleDeleteClick} handleSubmitCharacterClick={this.handleSubmitCharacterClick} />)
+            for (let character of this.state.characters) {
+                forms.push(<CharacterForm key={character.id} id={character.id} handleDeleteClick={() => this.handleDeleteClick(character.id)} handleSubmitCharacterClick={this.handleSubmitCharacterClick} />);
+
             }
+            forms.push(
+                <Box margin="small" key={this.state.currentId + 1}>
+                    <Button icon={<Add />} label="Add Character" onClick={this.handleAddCharacterClick} />
+                    <br /><br />
+                    <Button icon={<Play />} label="Begin Combat" onClick={this.handleBeginCombatClick} />
+                </Box>
+            );
         }
         return (
             <>
                 <Grommet >
                     {forms}
                 </Grommet>
-                <Button icon={<Add />} label="Add Character" onClick={this.handleAddCharacterClick} disabled={this.state.inCombat} /><br /><br />
-                <Button icon={<Play />} label="Begin Combat" onClick={this.handleBeginCombatClick} disabled={this.state.inCombat} />
             </>
         );
     }
