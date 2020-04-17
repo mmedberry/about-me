@@ -6,71 +6,44 @@ import { HomePage } from "./Pages/homePage";
 import { AboutPage } from "./Pages/aboutPage";
 import { ContactPage } from "./Pages/conactPage";
 import { ProjectsPage } from "./Pages/projectsPage";
-import { PageState } from "./types";
+import { PageState, RouteInfo } from "./types";
 import { EtchASketch } from "./Pages/etchASketch";
 import { Crossword } from "./Components/crossWord";
 import { ReflectionsPage } from "./Pages/reflectionsPage";
 import { CombatManagerPage } from "./Pages/combatManagerPage";
+import { BrowserRouter, Route, Link } from "react-router-dom";
 
 interface IMainPageState {
     page?: JSX.Element;
     pageState?: PageState;
+    
 }
-
+const routeInfo: Array<RouteInfo> = [
+    new RouteInfo("Home", "/home"),
+    new RouteInfo("Projects", "/projects"),
+    new RouteInfo("About", "/about"),
+    new RouteInfo("Contact", "/contact"),
+    new RouteInfo("Combat Manager", "/combat_manager"),
+]
 class MainPage extends React.Component<IMainPageState> {
     state: IMainPageState = {
         page: <HomePage />,
+        
     };
-    handleHomeClick = () => {
-        this.setState({ page: <HomePage />, pageState: PageState.Home });
-        console.log(this.props.pageState);
-    };
-    handleAboutClick = () => {
-        this.setState({ page: <AboutPage />, pageState: PageState.About });
-    };
-    handleContactClick = () => {
-        this.setState({ page: <ContactPage />, pageState: PageState.Contact });
-    };
-    handleProjectsClick = () => {
-        this.setState({
-            page: <ProjectsPage />,
-            pageState: PageState.Projects,
-        });
-    };
-    handleEtchASketchClick = () => {
-        this.setState({
-            page: <EtchASketch />,
-            pageState: PageState.EtchASketch,
-        });
-    };
-    handleReflectionsClick = () => {
-        this.setState({
-            page: <ReflectionsPage />,
-            pageState: PageState.Reflections,
-        });
-    };
-    handleCombatManagerClick=()=>{
-        this.setState({
-            page: <CombatManagerPage/>,
-            pageState: PageState.CombatManager,
-        })
-    }
+    
 
     render() {
         return (
             <>
-                <NavBar
-                    handleHomeClick={this.handleHomeClick}
-                    handleAboutClick={this.handleAboutClick}
-                    handleContactClick={this.handleContactClick}
-                    handleProjectsClick={this.handleProjectsClick}
-                    handleEtchASketchClick={this.handleEtchASketchClick}
-                    handleReflectionsClick={this.handleReflectionsClick}
-                    handleCombatManagerClick={this.handleCombatManagerClick}
-                    pageState={this.state.pageState}
-                />
-                {/* <Crossword></Crossword> */}
-                {this.state.page}
+                <BrowserRouter >
+                    <NavBar routeInfo={routeInfo}/>
+                    <Route path={"/home"} component={HomePage} />
+                    <Route path={"/projects"} component={ProjectsPage} />
+                    <Route path={"/about"} component={AboutPage} />
+                    <Route path={"/contact"} component={ContactPage} />
+                    <Route path={"/combat_manager"} component={CombatManagerPage} />
+
+                </BrowserRouter>
             </>
         );
     }

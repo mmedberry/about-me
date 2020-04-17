@@ -26,7 +26,7 @@ export class ProjectsPage extends React.Component {
                         </Text>
                         <Image
                             fit="cover"
-                            src="./rover.jpg"
+                            src={require("../Public/rover.jpg")}
                             alignSelf="start"
                         />
                     </AccordionPanel>
@@ -48,7 +48,7 @@ export class ProjectsPage extends React.Component {
                             <Box pad="small" basis="1/2">
                                 <Image
                                     fit="cover"
-                                    src="./gameScreen.png"
+                                    src={require("../Public/gameScreen.png")}
                                     alignSelf="start"
                                 />
                                 <Text>
@@ -69,7 +69,7 @@ export class ProjectsPage extends React.Component {
                             <Box basis="1/2" pad="small" overflow="auto">
                                 <Image
                                     fit="cover"
-                                    src="./projectDesign.png"
+                                    src={require("../Public/projectDesign.png")}
                                     alignSelf="start"
                                 />{" "}
                                 <Text>

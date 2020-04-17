@@ -1,3 +1,4 @@
+
 export enum PageState {
     Home,
     About,
@@ -76,5 +77,14 @@ export class DictionaryEntry {
         let tempName: string = data.Name;
         this.name = tempName.toLowerCase();
         this.definition = data.Definition;
+    }
+}
+
+export class RouteInfo {
+    name: string;
+    route: string;
+    constructor(name: string, route: string) {
+        this.name = name;
+        this.route = route;
     }
 }
