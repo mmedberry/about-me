@@ -11,38 +11,41 @@ import { EtchASketch } from "./Pages/etchASketch";
 import { Crossword } from "./Components/crossWord";
 import { ReflectionsPage } from "./Pages/reflectionsPage";
 import { CombatManagerPage } from "./Pages/combatManagerPage";
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { NoMatchPage } from "./Pages/noMatchPage";
 
 interface IMainPageState {
     page?: JSX.Element;
     pageState?: PageState;
-    
 }
 const routeInfo: Array<RouteInfo> = [
-    new RouteInfo("Home", "/home"),
+    new RouteInfo("Home", "/"),
     new RouteInfo("Projects", "/projects"),
     new RouteInfo("About", "/about"),
     new RouteInfo("Contact", "/contact"),
-    new RouteInfo("Combat Manager", "/combat_manager"),
-]
+    new RouteInfo("Combat Manager", "/combat-manager"),
+];
 class MainPage extends React.Component<IMainPageState> {
     state: IMainPageState = {
         page: <HomePage />,
-        
     };
-    
 
     render() {
         return (
             <>
-                <BrowserRouter >
-                    <NavBar routeInfo={routeInfo}/>
-                    <Route path={"/home"} component={HomePage} />
-                    <Route path={"/projects"} component={ProjectsPage} />
-                    <Route path={"/about"} component={AboutPage} />
-                    <Route path={"/contact"} component={ContactPage} />
-                    <Route path={"/combat_manager"} component={CombatManagerPage} />
-
+                <BrowserRouter>
+                    <NavBar routeInfo={routeInfo} />
+                    <Switch>
+                        <Route exact path={"/"} component={HomePage} />
+                        <Route path={"/projects"} component={ProjectsPage} />
+                        <Route path={"/about"} component={AboutPage} />
+                        <Route path={"/contact"} component={ContactPage} />
+                        <Route
+                            path={"/combat-manager"}
+                            component={CombatManagerPage}
+                        />
+                        <Route component={NoMatchPage} />
+                    </Switch>
                 </BrowserRouter>
             </>
         );

@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Image, Text } from "grommet";
+import { Text } from "grommet";
 
 export class HomePage extends React.Component {
     render() {

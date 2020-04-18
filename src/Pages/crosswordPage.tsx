@@ -3,7 +3,9 @@ import { Text } from "grommet";
 
 export class CrosswordPage extends React.Component {
     render() {
-        return (<></>
+        return (<>
+        
+        </>
         );
     }
 }
